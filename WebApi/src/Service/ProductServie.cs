@@ -61,7 +61,7 @@ namespace WebApi.src.Service
 
         public async Task<ApiResponse<ProductResponse>> GetProduct(Guid Id)
         {
-            var product = _context.Products.FirstOrDefaultAsync(p => p.Id == Id);
+            var product = await _context.Products.FirstOrDefaultAsync(p => p.Id == Id);
             if(product == null)
             {
                 return new ApiResponse<ProductResponse>
